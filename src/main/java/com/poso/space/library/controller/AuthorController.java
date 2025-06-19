@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poso.space.library.model.Author;
 import com.poso.space.library.services.AuthorService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
@@ -33,7 +35,7 @@ public class AuthorController {
     }
 
     @PostMapping
-    public Author create(@RequestBody Author author) {
+    public Author create(@Valid @RequestBody Author author) {
         return authorService.createAuthor(author);
     }
 

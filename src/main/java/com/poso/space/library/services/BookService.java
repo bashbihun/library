@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.poso.space.library.dto.BookRequest;
+import com.poso.space.library.exception.ResourceNotFoundException;
 import com.poso.space.library.model.Author;
 import com.poso.space.library.model.Book;
 import com.poso.space.library.repositories.AuthorRepository;
@@ -25,7 +26,8 @@ public class BookService {
     }
 
     public Book getBookById(Long id) {
-        return bookRepository.findById(id).orElse(null);
+        return bookRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
     }
 
     public Book createBook(BookRequest request) {

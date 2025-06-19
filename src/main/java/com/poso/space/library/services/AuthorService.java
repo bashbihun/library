@@ -19,7 +19,8 @@ public class AuthorService {
     }
 
     public Author getAuthorById(Long id) {
-        return authorRepository.findById(id).orElse(null);
+        return authorRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Author not found with id: " + id));
     }
 
     public Author createAuthor(Author author) {

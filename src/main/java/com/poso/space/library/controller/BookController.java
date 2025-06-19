@@ -16,6 +16,8 @@ import com.poso.space.library.dto.BookRequest;
 import com.poso.space.library.model.Book;
 import com.poso.space.library.services.BookService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/books")
 public class BookController {
@@ -34,7 +36,7 @@ public class BookController {
     }
 
     @PostMapping
-    public Book create(@RequestBody BookRequest bookRequest) {
+    public Book create(@Valid @RequestBody BookRequest bookRequest) {
         return bookService.createBook(bookRequest);
     }
 
