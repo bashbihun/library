@@ -20,10 +20,17 @@ Simple REST API to manage books and authors using Spring Boot and MySQL.
 4. Use Postman to test API
 
 ## Example JSON
+if success response
 ```json
 {
   "title": "Atomic Habits",
   "isbn": "978-1234567890",
   "publishedYear": 2018,
   "authorId": 1
+}
+```
+if not foun
+```json
+{
+  "error": "Book not found with id: 99"
 }
