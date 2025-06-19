@@ -6,6 +6,7 @@ Simple REST API to manage books and authors using Spring Boot and MySQL.
 - CRUD Book
 - CRUD Author
 - Relational DB (Many-to-One)
+- Validation & Error Handling
 
 ## Tech Stack
 - Java 17
@@ -29,7 +30,7 @@ if success response
   "authorId": 1
 }
 ```
-if not foun
+if not found
 ```json
 {
   "error": "Book not found with id: 99"
